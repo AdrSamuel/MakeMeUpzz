@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Header.master.cs" Inherits="MakeMeUpzz.Master.Header" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton2" runat="server">LinkButton</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton3" runat="server">LinkButton</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton4" runat="server">LinkButton</asp:LinkButton>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="contentPage" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
