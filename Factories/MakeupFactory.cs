@@ -6,7 +6,6 @@ using System.Web;
 
 namespace MakeMeUpzz.Factories {
     public class MakeupFactory {
-
         public static Makeup Crete(int id, string name, int price, int weight, 
             int typeID, int brandID) {
 

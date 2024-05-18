@@ -10,16 +10,7 @@
 namespace MakeMeUpzz.Views {
 
 
-    public partial class LoginPage {
-
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class HomePage {
 
         /// <summary>
         /// UserNameLabel control.
@@ -31,66 +22,48 @@ namespace MakeMeUpzz.Views {
         protected global::System.Web.UI.WebControls.Label UserNameLabel;
 
         /// <summary>
-        /// UserNameBox control.
+        /// UserNameShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserNameBox;
+        protected global::System.Web.UI.WebControls.Label UserNameShow;
 
         /// <summary>
-        /// PasswordLabel control.
+        /// UserRoleLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordLabel;
+        protected global::System.Web.UI.WebControls.Label UserRoleLabel;
 
         /// <summary>
-        /// PasswordBox control.
+        /// UserRoleShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordBox;
+        protected global::System.Web.UI.WebControls.Label UserRoleShow;
 
         /// <summary>
-        /// RememberBox control.
+        /// ListUserContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RememberBox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ListUserContainer;
 
         /// <summary>
-        /// RememberLabel control.
+        /// ListUserGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RememberLabel;
-
-        /// <summary>
-        /// ErrorLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
-
-        /// <summary>
-        /// LoginButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.GridView ListUserGV;
     }
 }

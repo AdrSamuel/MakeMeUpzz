@@ -4,18 +4,28 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>MakeMeUpzz</title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav>
-            <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
-            <asp:LinkButton ID="LinkButton2" runat="server">LinkButton</asp:LinkButton>
-            <asp:LinkButton ID="LinkButton3" runat="server">LinkButton</asp:LinkButton>
-            <asp:LinkButton ID="LinkButton4" runat="server">LinkButton</asp:LinkButton>
+        <nav style="display: flex; justify-content: center;">
+            <nav id="CustomerNavbar" runat="server">
+                <asp:Button ID="OrderMakeupLabel" runat="server" Text="Order Makeup" OnClick="OrderMakeupLabel_Click" />
+                <asp:Button ID="HistoryLabel" runat="server" Text="History" OnClick="HistoryLabel_Click" />
+            </nav>
+            <nav id="AdminNavbar" runat="server">
+                <asp:Button ID="HomeLabel" runat="server" Text="Home" OnClick="HomeLabel_Click" />
+                <asp:Button ID="ManageMakeupLabel" runat="server" Text="Manage Makeup" OnClick="ManageMakeupLabel_Click" />
+                <asp:Button ID="OrderQueueLabel" runat="server" Text="Order Queue" OnClick="OrderQueueLabel_Click" />
+                <asp:Button ID="TransactionReportLabel" runat="server" Text="Transaction Report" OnClick="TransactionReportLabel_Click" />
+            </nav>
+            <nav id="BaseNavbar" padding-left: 20px;>
+                <asp:Button ID="ProfileLabel" runat="server" Text="Profile" OnClick="ProfileLabel_Click" />
+                <asp:Button ID="LogoutLabel" runat="server" Text="Logout" OnClick="LogoutLabel_Click" />
+            </nav>
         </nav>
         <div>
-            <asp:ContentPlaceHolder ID="contentPage" runat="server">
+            <asp:ContentPlaceHolder ID="content_page" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>

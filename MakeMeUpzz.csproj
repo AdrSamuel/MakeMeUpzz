@@ -89,17 +89,29 @@
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\AdminViews\ManageMakeupPage.aspx" />
+    <Content Include="Views\AdminViews\OrderQueuePage.aspx" />
+    <Content Include="Views\AdminViews\TranReportPage.aspx" />
+    <Content Include="Views\CustomerViews\OrderMakeupPage.aspx" />
+    <Content Include="Views\CustomerViews\TranHistoryPage.aspx" />
+    <Content Include="Views\GuestPage.aspx" />
+    <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\LogoutPage.aspx" />
+    <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Factories\MakeupBrandFactory.cs" />
     <Compile Include="Factories\MakeupFactory.cs" />
     <Compile Include="Factories\MakeupTypeFactory.cs" />
     <Compile Include="Factories\TranDetailFactory.cs" />
     <Compile Include="Factories\TranHeaderFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
+    <Compile Include="Handlers\Handler.cs" />
     <Compile Include="Master\Header.Master.cs">
       <DependentUpon>Header.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,12 +153,82 @@
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DatabaseSingleton.cs" />
+    <Compile Include="Repositories\MakeupBrandRepository.cs" />
+    <Compile Include="Repositories\MakeupRepository.cs" />
+    <Compile Include="Repositories\MakeupTypeRepository.cs" />
+    <Compile Include="Repositories\TranDetailRepository.cs" />
+    <Compile Include="Repositories\TranHeaderRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Views\AdminViews\ManageMakeupPage.aspx.cs">
+      <DependentUpon>ManageMakeupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\ManageMakeupPage.aspx.designer.cs">
+      <DependentUpon>ManageMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\OrderQueuePage.aspx.cs">
+      <DependentUpon>OrderQueuePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\OrderQueuePage.aspx.designer.cs">
+      <DependentUpon>OrderQueuePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\TranReportPage.aspx.cs">
+      <DependentUpon>TranReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\TranReportPage.aspx.designer.cs">
+      <DependentUpon>TranReportPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerViews\OrderMakeupPage.aspx.cs">
+      <DependentUpon>OrderMakeupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerViews\OrderMakeupPage.aspx.designer.cs">
+      <DependentUpon>OrderMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerViews\TranHistoryPage.aspx.cs">
+      <DependentUpon>TranHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerViews\TranHistoryPage.aspx.designer.cs">
+      <DependentUpon>TranHistoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GuestPage.aspx.cs">
+      <DependentUpon>GuestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\GuestPage.aspx.designer.cs">
+      <DependentUpon>GuestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogoutPage.aspx.cs">
+      <DependentUpon>LogoutPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LogoutPage.aspx.designer.cs">
+      <DependentUpon>LogoutPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
@@ -176,13 +258,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Handlers\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Views\AdminViews\" />
-    <Folder Include="Views\CustomerViews\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

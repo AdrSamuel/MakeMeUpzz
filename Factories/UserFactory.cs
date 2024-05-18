@@ -8,7 +8,7 @@ namespace MakeMeUpzz.Factories {
     public class UserFactory {
 
         public static User Create(int id, string name, string email,
-            DateTime dob, string gender, string role, string password) {
+            string gender, string password, DateTime dob) {
 
             User user = new User() {
                 UserID = id,
@@ -16,7 +16,7 @@ namespace MakeMeUpzz.Factories {
                 UserEmail = email,
                 UserDOB = dob,
                 UserGender = gender,
-                UserRole = role,
+                UserRole = "Customer",
                 UserPassword = password
             };
 
