@@ -71,8 +71,8 @@ namespace MakeMeUpzz.Controllers {
         private static string CheckDob(DateTime dob) {
             string response = "";
 
-            if (dob.Equals("")) {
-                response = "Date cannot be empty";
+            if (dob == DateTime.MinValue) {
+                response = "Date cannot be chosen";
             }
 
             return response;

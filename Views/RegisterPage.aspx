@@ -42,7 +42,7 @@
             <asp:Label ID="ErrorLabel" runat="server" Text=""></asp:Label>
         </div>
         <div>
-            <asp:Button ID="SubmitButton" runat="server" Text="Submit" />
+            <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
         </div>
     </form>
 </body>

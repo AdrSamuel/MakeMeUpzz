@@ -13,7 +13,7 @@ namespace MakeMeUpzz.Views {
             
         }
 
-        protected void submit_btn_Click(object sender, EventArgs e) {
+        protected void SubmitButton_Click(object sender, EventArgs e) {
 
             var username = UserNameBox.Text;
             var email = EmailBox.Text;
@@ -22,7 +22,7 @@ namespace MakeMeUpzz.Views {
             var confPassword = ConfPasswordBox.Text;
             var dob = Calendar.SelectedDate;
 
-            ErrorLabel.Text = RegisterController.Register(username, email, gender, password, 
+            ErrorLabel.Text = RegisterController.Register(username, email, gender, password,
                 confPassword, dob);
 
             if (ErrorLabel.Text.Equals("")) {

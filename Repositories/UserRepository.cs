@@ -16,6 +16,7 @@ namespace MakeMeUpzz.Repositories {
 
             User user = UserFactory.Create(id, username, email, gender, password, dob);
             _instance.Users.Add(user);
+            _instance.SaveChanges();
         }
 
         public static User CheckUser(string username, string password) {
