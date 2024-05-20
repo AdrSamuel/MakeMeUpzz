@@ -22,7 +22,7 @@ namespace MakeMeUpzz.Controllers {
             return response;
         }
 
-        private static string CheckUserEmail(string email) {
+        public static string CheckUserEmail(string email) {
             string response = "";
 
             if (email.Equals("")) {
@@ -34,7 +34,7 @@ namespace MakeMeUpzz.Controllers {
             return response;
         }
 
-        private static string CheckGender(string gender) {
+        public static string CheckGender(string gender) {
             string response = "";
 
             if (gender.Equals("")) {
@@ -68,11 +68,11 @@ namespace MakeMeUpzz.Controllers {
             return response;
         }
 
-        private static string CheckDob(DateTime dob) {
+        public static string CheckDob(DateTime dob) {
             string response = "";
 
             if (dob == DateTime.MinValue) {
-                response = "Date cannot be chosen";
+                response = "Date must be chosen";
             }
 
             return response;

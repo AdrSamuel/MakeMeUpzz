@@ -10,52 +10,79 @@
 namespace MakeMeUpzz.Views {
 
 
-    public partial class ProfilePage {
+    public partial class UpdateProfilePage {
 
         /// <summary>
-        /// ProfileGV control.
+        /// UserNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ProfileGV;
+        protected global::System.Web.UI.WebControls.Label UserNameLabel;
 
         /// <summary>
-        /// OldPasswordLabel control.
+        /// UserNameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label OldPasswordLabel;
+        protected global::System.Web.UI.WebControls.TextBox UserNameBox;
 
         /// <summary>
-        /// OldPasswordBox control.
+        /// UserEmailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox OldPasswordBox;
+        protected global::System.Web.UI.WebControls.Label UserEmailLabel;
 
         /// <summary>
-        /// NewPasswordLabel control.
+        /// UserEmailBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NewPasswordLabel;
+        protected global::System.Web.UI.WebControls.TextBox UserEmailBox;
 
         /// <summary>
-        /// NewPasswordBox control.
+        /// UserGenderLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewPasswordBox;
+        protected global::System.Web.UI.WebControls.Label UserGenderLabel;
+
+        /// <summary>
+        /// UserGenderDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList UserGenderDropDownList;
+
+        /// <summary>
+        /// UserDobLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UserDobLabel;
+
+        /// <summary>
+        /// Calendar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Calendar;
 
         /// <summary>
         /// ErrorLabel control.
@@ -67,12 +94,12 @@ namespace MakeMeUpzz.Views {
         protected global::System.Web.UI.WebControls.Label ErrorLabel;
 
         /// <summary>
-        /// UpdatePasswordButton control.
+        /// UpdateButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdatePasswordButton;
+        protected global::System.Web.UI.WebControls.Button UpdateButton;
     }
 }
