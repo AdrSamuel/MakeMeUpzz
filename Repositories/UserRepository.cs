@@ -7,6 +7,7 @@ using System.Web;
 
 namespace MakeMeUpzz.Repositories {
     public class UserRepository {
+
         private static MakeMeUpzzDatabaseEntities _instance = DatabaseSingleton.GetInstance();
 
         public static void CreateCustomer(string username, string email, string gender,

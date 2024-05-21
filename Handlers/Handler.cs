@@ -64,5 +64,9 @@ namespace MakeMeUpzz.Handlers {
             return UserRepository.GetUserNameByID(id);
         }
 
+        public static List<Makeup> GetAllMakeup() {
+            return MakeupRepository.GetAllMakeup();
+        }
+
     }
 }

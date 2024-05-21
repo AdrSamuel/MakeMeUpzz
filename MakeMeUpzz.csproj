@@ -97,7 +97,6 @@
     <Content Include="Views\GuestPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
-    <Content Include="Views\LogoutPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\UpdateProfilePage.aspx" />
@@ -217,13 +216,6 @@
     </Compile>
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LogoutPage.aspx.cs">
-      <DependentUpon>LogoutPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\LogoutPage.aspx.designer.cs">
-      <DependentUpon>LogoutPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ProfilePage.aspx.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>

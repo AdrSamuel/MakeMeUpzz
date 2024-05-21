@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MakeMeUpzz.Handlers;
+using MakeMeUpzz.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +10,42 @@ using System.Web.UI.WebControls;
 namespace MakeMeUpzz.Master {
     public partial class Header: System.Web.UI.MasterPage {
         protected void Page_Load(object sender, EventArgs e) {
-            AdminNavbar.Visible = false;
+            
+
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
+
+                Response.Redirect("LoginPage.aspx");
+
+            } else {
+
+                User user;
+
+                if (Session["user"] == null) {
+
+                    var username = Request.Cookies["user_cookie"].Value;
+                    user = Handler.GetUser(username);
+                    Session["user"] = user;
+
+                } else {
+
+                    user = (User) Session["user"];
+
+                }
+
+                if (user.UserRole.Equals("Admin")) {
+
+                    CustomerNavbar.Visible = false;
+                    AdminNavbar.Visible = true;
+
+                } else {
+
+                    CustomerNavbar.Visible = true;
+                    AdminNavbar.Visible = false;
+
+                }
+
+            }
+
         }
 
         protected void OrderMakeupLabel_Click(object sender, EventArgs e) {
@@ -40,7 +77,13 @@ namespace MakeMeUpzz.Master {
         }
 
         protected void LogoutLabel_Click(object sender, EventArgs e) {
-            Response.Redirect("~/Views/LogoutPage.aspx");
+            string[] cookies = Request.Cookies.AllKeys;
+            foreach (string cookie in cookies) {
+                Response.Cookies[cookie].Expires = DateTime.Now.AddDays(-1);
+            }
+
+            Session.Remove("user");
+            Response.Redirect("~/Views/LoginPage.aspx");
         }
     }
 }
