@@ -68,5 +68,24 @@ namespace MakeMeUpzz.Handlers {
             return MakeupRepository.GetAllMakeup();
         }
 
+        public static void AddToCart(int userID, int makeupID, int quantity) {
+            CartRepository.CreateCart(userID, makeupID, quantity);
+        }
+
+        public static List<CartDTO> GetCart(int userID) {
+            return CartRepository.GetCart(userID);
+        }
+
+        public static void ClearCart(int userID) {
+            CartRepository.ClearCart(userID);
+        }
+
+        public static List<MakeupBrand> GetAllMakeupBrand() {
+            return MakeupBrandRepository.GetAllMakeupBrand();
+        }
+
+        public static List<MakeupType> GetAllMakeupType() {
+            return MakeupTypeRepository.GetAllMakeupType();
+        }
     }
 }

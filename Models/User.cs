@@ -18,6 +18,7 @@ namespace MakeMeUpzz.Models
         public User()
         {
             this.TransactionHeaders = new HashSet<TransactionHeader>();
+            this.Carts = new HashSet<Cart>();
         }
     
         public int UserID { get; set; }
@@ -30,5 +31,7 @@ namespace MakeMeUpzz.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionHeader> TransactionHeaders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

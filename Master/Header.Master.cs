@@ -14,7 +14,7 @@ namespace MakeMeUpzz.Master {
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
 
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("~/Views/LoginPage.aspx");
 
             } else {
 
@@ -57,7 +57,7 @@ namespace MakeMeUpzz.Master {
         }
 
         protected void HomeLabel_Click(object sender, EventArgs e) {
-            Response.Redirect("HomePage.aspx");
+            Response.Redirect("~/Views/HomePage.aspx");
         }
 
         protected void ManageMakeupLabel_Click(object sender, EventArgs e) {

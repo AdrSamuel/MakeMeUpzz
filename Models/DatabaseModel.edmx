@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MakeMeUpzzDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MakeMeUpzzDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Carts">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="MakeupID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="MakeupBrands">
           <Key>
             <PropertyRef Name="MakeupBrandID" />
@@ -88,6 +97,30 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Table_Makeups">
+          <End Role="Makeups" Type="Self.Makeups" Multiplicity="1" />
+          <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makeups">
+              <PropertyRef Name="MakeupID" />
+            </Principal>
+            <Dependent Role="Carts">
+              <PropertyRef Name="MakeupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Carts">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TransactionDetails_Makeups">
           <End Role="Makeups" Type="Self.Makeups" Multiplicity="1" />
           <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
@@ -125,6 +158,7 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MakeMeUpzzDatabaseModelStoreContainer">
+          <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MakeupBrands" EntityType="Self.MakeupBrands" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Makeups" EntityType="Self.Makeups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MakeupTypes" EntityType="Self.MakeupTypes" Schema="dbo" store:Type="Tables" />
@@ -145,6 +179,14 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
             <End Role="MakeupTypes" EntitySet="MakeupTypes" />
             <End Role="Makeups" EntitySet="Makeups" />
           </AssociationSet>
+          <AssociationSet Name="FK_Table_Makeups" Association="Self.FK_Table_Makeups">
+            <End Role="Makeups" EntitySet="Makeups" />
+            <End Role="Carts" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Users" Association="Self.FK_Table_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Carts" EntitySet="Carts" />
+          </AssociationSet>
           <AssociationSet Name="FK_TransactionDetails_Makeups" Association="Self.FK_TransactionDetails_Makeups">
             <End Role="Makeups" EntitySet="Makeups" />
             <End Role="TransactionDetails" EntitySet="TransactionDetails" />
@@ -158,8 +200,7 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
             <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MakeMeUpzzDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -185,6 +226,7 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
           <NavigationProperty Name="MakeupBrand" Relationship="Self.FK_Makeups_MakeupBrands" FromRole="Makeups" ToRole="MakeupBrands" />
           <NavigationProperty Name="MakeupType" Relationship="Self.FK_Makeups_MakeupTypes" FromRole="Makeups" ToRole="MakeupTypes" />
           <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_Makeups" FromRole="Makeups" ToRole="TransactionDetails" />
+          <NavigationProperty Name="Carts" Relationship="MakeMeUpzzDatabaseModel.FK_Table_Makeups" FromRole="Makeup" ToRole="Cart" />
         </EntityType>
         <EntityType Name="MakeupType">
           <Key>
@@ -217,6 +259,7 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
           <Property Name="UserRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="TransactionHeaders" Relationship="Self.FK_TransactionHeaders_Users" FromRole="Users" ToRole="TransactionHeaders" />
+          <NavigationProperty Name="Carts" Relationship="MakeMeUpzzDatabaseModel.FK_Table_Users" FromRole="User" ToRole="Cart" />
         </EntityType>
         <EntityType Name="TransactionDetail">
           <Key>
@@ -317,7 +360,51 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
             <End Role="Users" EntitySet="Users" />
             <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
           </AssociationSet>
+          <EntitySet Name="Carts" EntityType="MakeMeUpzzDatabaseModel.Cart" />
+          <AssociationSet Name="FK_Table_Makeups" Association="MakeMeUpzzDatabaseModel.FK_Table_Makeups">
+            <End Role="Makeup" EntitySet="Makeups" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Users" Association="MakeMeUpzzDatabaseModel.FK_Table_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="MakeupID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Makeup" Relationship="MakeMeUpzzDatabaseModel.FK_Table_Makeups" FromRole="Cart" ToRole="Makeup" />
+          <NavigationProperty Name="User" Relationship="MakeMeUpzzDatabaseModel.FK_Table_Users" FromRole="Cart" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Table_Makeups">
+          <End Type="MakeMeUpzzDatabaseModel.Makeup" Role="Makeup" Multiplicity="1" />
+          <End Type="MakeMeUpzzDatabaseModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makeup">
+              <PropertyRef Name="MakeupID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="MakeupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Users">
+          <End Type="MakeMeUpzzDatabaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="MakeMeUpzzDatabaseModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -382,6 +469,16 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
                 <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
                 <ScalarProperty Name="MakeupID" ColumnName="MakeupID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="MakeMeUpzzDatabaseModel.Cart">
+              <MappingFragment StoreEntitySet="Carts">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MakeupID" ColumnName="MakeupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

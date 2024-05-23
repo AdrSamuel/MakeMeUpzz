@@ -16,6 +16,9 @@
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_Makeups" ManuallyRouted="false" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_TransactionHeaders" ManuallyRouted="false" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionHeaders_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.Cart" Width="1.5" PointX="7.5" PointY="5.125" />
+        <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_Table_Makeups" />
+        <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_Table_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,6 +18,7 @@ namespace MakeMeUpzz.Models
         public Makeup()
         {
             this.TransactionDetails = new HashSet<TransactionDetail>();
+            this.Carts = new HashSet<Cart>();
         }
     
         public int MakeupID { get; set; }
@@ -31,5 +32,7 @@ namespace MakeMeUpzz.Models
         public virtual MakeupType MakeupType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }
