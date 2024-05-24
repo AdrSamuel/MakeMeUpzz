@@ -10,87 +10,69 @@
 namespace MakeMeUpzz.Views.AdminViews {
 
 
-    public partial class ManageMakeupPage {
+    public partial class InsertMakeupBrand {
 
         /// <summary>
-        /// InsertMakeupLabel control.
+        /// BrandNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label InsertMakeupLabel;
+        protected global::System.Web.UI.WebControls.Label BrandNameLabel;
 
         /// <summary>
-        /// InsertMakeupButton control.
+        /// BrandNameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertMakeupButton;
+        protected global::System.Web.UI.WebControls.TextBox BrandNameBox;
 
         /// <summary>
-        /// MakeupGV control.
+        /// RatingLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MakeupGV;
+        protected global::System.Web.UI.WebControls.Label RatingLabel;
 
         /// <summary>
-        /// InsertMakeupTypeLabel control.
+        /// RatingBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label InsertMakeupTypeLabel;
+        protected global::System.Web.UI.WebControls.TextBox RatingBox;
 
         /// <summary>
-        /// InsertMakeupTypeButton control.
+        /// ErrorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertMakeupTypeButton;
+        protected global::System.Web.UI.WebControls.Label ErrorLabel;
 
         /// <summary>
-        /// MakeupTypeGV control.
+        /// BackButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MakeupTypeGV;
+        protected global::System.Web.UI.WebControls.Button BackButton;
 
         /// <summary>
-        /// InsertMakeupBrandLabel control.
+        /// InsertButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label InsertMakeupBrandLabel;
-
-        /// <summary>
-        /// InsertMakeupBrandButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertMakeupBrandButton;
-
-        /// <summary>
-        /// MakeupBrandGV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MakeupBrandGV;
+        protected global::System.Web.UI.WebControls.Button InsertButton;
     }
 }

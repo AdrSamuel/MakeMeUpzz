@@ -10,6 +10,8 @@ using System.Web.UI.WebControls;
 
 namespace MakeMeUpzz.Views {
     public partial class ProfilePage: System.Web.UI.Page {
+
+        User user;
         protected void Page_Load(object sender, EventArgs e) {
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
@@ -17,8 +19,7 @@ namespace MakeMeUpzz.Views {
                 Response.Redirect("LoginPage.aspx");
 
             } else {
-
-                User user;
+               
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
@@ -49,7 +50,7 @@ namespace MakeMeUpzz.Views {
 
         protected void UpdatePasswordButton_Click(object sender, EventArgs e) {
 
-            User user;
+         /*   User user;
             if (Session["user"] == null) {
 
                 var username = Request.Cookies["user_cookie"].Value;
@@ -60,7 +61,7 @@ namespace MakeMeUpzz.Views {
 
                 user = (User) Session["user"];
 
-            }
+            }*/
 
             var oldPass = OldPasswordBox.Text;
             var newPass = NewPasswordBox.Text;

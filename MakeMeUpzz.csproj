@@ -89,9 +89,15 @@
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\AdminViews\InsertMakeup.aspx" />
+    <Content Include="Views\AdminViews\InsertMakeupBrand.aspx" />
+    <Content Include="Views\AdminViews\InsertMakeupType.aspx" />
     <Content Include="Views\AdminViews\ManageMakeupPage.aspx" />
     <Content Include="Views\AdminViews\OrderQueuePage.aspx" />
     <Content Include="Views\AdminViews\TranReportPage.aspx" />
+    <Content Include="Views\AdminViews\UpdateMakeupBrandPage.aspx" />
+    <Content Include="Views\AdminViews\UpdateMakeupPage.aspx" />
+    <Content Include="Views\AdminViews\UpdateMakeupTypePage.aspx" />
     <Content Include="Views\CustomerViews\OrderMakeupPage.aspx" />
     <Content Include="Views\CustomerViews\TranHistoryPage.aspx" />
     <Content Include="Views\GuestPage.aspx" />
@@ -104,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MakeupController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -168,6 +175,27 @@
     <Compile Include="Repositories\TranDetailRepository.cs" />
     <Compile Include="Repositories\TranHeaderRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Views\AdminViews\InsertMakeup.aspx.cs">
+      <DependentUpon>InsertMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\InsertMakeup.aspx.designer.cs">
+      <DependentUpon>InsertMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\InsertMakeupBrand.aspx.cs">
+      <DependentUpon>InsertMakeupBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\InsertMakeupBrand.aspx.designer.cs">
+      <DependentUpon>InsertMakeupBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\InsertMakeupType.aspx.cs">
+      <DependentUpon>InsertMakeupType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\InsertMakeupType.aspx.designer.cs">
+      <DependentUpon>InsertMakeupType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminViews\ManageMakeupPage.aspx.cs">
       <DependentUpon>ManageMakeupPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,6 +216,27 @@
     </Compile>
     <Compile Include="Views\AdminViews\TranReportPage.aspx.designer.cs">
       <DependentUpon>TranReportPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\UpdateMakeupBrandPage.aspx.cs">
+      <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\UpdateMakeupBrandPage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\UpdateMakeupPage.aspx.cs">
+      <DependentUpon>UpdateMakeupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\UpdateMakeupPage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminViews\UpdateMakeupTypePage.aspx.cs">
+      <DependentUpon>UpdateMakeupTypePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\UpdateMakeupTypePage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupTypePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CustomerViews\OrderMakeupPage.aspx.cs">
       <DependentUpon>OrderMakeupPage.aspx</DependentUpon>

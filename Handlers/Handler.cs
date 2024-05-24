@@ -2,6 +2,7 @@
 using MakeMeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
+using System.EnterpriseServices.Internal;
 using System.Linq;
 using System.Web;
 
@@ -86,6 +87,18 @@ namespace MakeMeUpzz.Handlers {
 
         public static List<MakeupType> GetAllMakeupType() {
             return MakeupTypeRepository.GetAllMakeupType();
+        }
+
+        public static void InsertMakeup(string name, int price, int weight, int typeID, int brandID) {
+            MakeupRepository.CreateMakeup(name, price, weight, typeID, brandID);
+        }
+
+        public static void InsertMakeupBrand(string name, int rating) {
+            MakeupBrandRepository.CreateMakeupBrand(name, rating);
+        }
+
+        public static void InsertMakeupType(string name) {
+            MakeupTypeRepository.CreateMakeupType(name);
         }
     }
 }

@@ -13,7 +13,6 @@
     </div>
     <div id="ListUserContainer" runat="server">
         <h1>List User</h1>
-
         <asp:GridView ID="ListUserGV" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="UserID" HeaderText="ID" SortExpression="UserId" />
