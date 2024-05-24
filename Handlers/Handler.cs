@@ -133,5 +133,42 @@ namespace MakeMeUpzz.Handlers {
         public static void DeleteMakeupBrand(int id) {
             MakeupBrandRepository.DeleteMakeupBrand(id);
         }
+
+        public static void CreateTransaction(int userID) {
+
+            int tranID = TranHeaderRepository.CreateTran(userID);
+
+            TranDetailRepository.CreateTranDetail(userID, tranID);
+
+            CartRepository.ClearCart(userID);
+
+        }
+
+        public static List<TransactionHeader> GetAllTransaction() {
+            return TranHeaderRepository.GetAllTransaction();
+        }
+
+        internal static void HandleTransaction(int transactionID) {
+            TranHeaderRepository.HandleTransaction(transactionID);
+        }
+
+        public static List<TransactionHeader> GetUserTransactions(int userID) {
+            return TranHeaderRepository.GetUserTransactions(userID);
+        }
+        public static TransactionHeader GetUserTransactionsByID(int tranID) {
+            return TranHeaderRepository.GetUserTransactionsByID(tranID);
+        }
+
+        public static List<TransactionDetail> GetTransactionDetail(int id) {
+            return TranDetailRepository.GetTransactionDetail(id);
+        }
+
+        internal static List<TransactionHeader> GetUnhandledTransaction() {
+            return TranHeaderRepository.GetUnhandledTransaction();
+        }
+
+        internal static List<TransactionHeader> GetHandledTransaction() {
+            return TranHeaderRepository.GetHandledTransaction();
+        }
     }
 }

@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MakeMeUpzz.Views.CustomerViews {
+namespace MakeMeUpzz.Views {
 
 
-    public partial class TranHistoryPage {
+    public partial class TransactionDetailPage {
     }
 }

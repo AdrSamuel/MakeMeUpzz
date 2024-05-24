@@ -53,7 +53,7 @@ namespace MakeMeUpzz.Master {
         }
 
         protected void HistoryLabel_Click(object sender, EventArgs e) {
-            Response.Redirect("~/Views/CustomerViews/TranHistoryPage.aspx");
+            Response.Redirect("~/Views/TransactionPage.aspx");
         }
 
         protected void HomeLabel_Click(object sender, EventArgs e) {
@@ -65,7 +65,7 @@ namespace MakeMeUpzz.Master {
         }
 
         protected void OrderQueueLabel_Click(object sender, EventArgs e) {
-            Response.Redirect("~/Views/AdminViews/.aspx");
+            Response.Redirect("~/Views/AdminViews/OrderQueuePage.aspx");
         }
 
         protected void TransactionReportLabel_Click(object sender, EventArgs e) {

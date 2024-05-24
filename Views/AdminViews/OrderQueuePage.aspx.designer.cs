@@ -13,12 +13,39 @@ namespace MakeMeUpzz.Views.AdminViews {
     public partial class OrderQueuePage {
 
         /// <summary>
-        /// AdminContent control.
+        /// UnhandledGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AdminContent;
+        protected global::System.Web.UI.WebControls.GridView UnhandledGV;
+
+        /// <summary>
+        /// HandledGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView HandledGV;
+
+        /// <summary>
+        /// HistoryLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label HistoryLabel;
+
+        /// <summary>
+        /// HistoryButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button HistoryButton;
     }
 }

@@ -40,14 +40,11 @@
           <Property Name="MakeUpTypeID" Type="int" Nullable="false" />
           <Property Name="MakeupTypeName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP_DATA\MAKEMEUPZZDATABASE.MDF.dbo.TransactionDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TransactionDetails">
           <Key>
-            <PropertyRef Name="TransactionID" />
-            <PropertyRef Name="MakeupID" />
-            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransactionID" Type="int" Nullable="false" />
           <Property Name="MakeupID" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
@@ -162,15 +159,9 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
           <EntitySet Name="MakeupBrands" EntityType="Self.MakeupBrands" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Makeups" EntityType="Self.Makeups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MakeupTypes" EntityType="Self.MakeupTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetails" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TransactionDetails].[TransactionID] AS [TransactionID], 
-    [TransactionDetails].[MakeupID] AS [MakeupID], 
-    [TransactionDetails].[Quantity] AS [Quantity]
-    FROM [dbo].[TransactionDetails] AS [TransactionDetails]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Makeups_MakeupBrands" Association="Self.FK_Makeups_MakeupBrands">
             <End Role="MakeupBrands" EntitySet="MakeupBrands" />
             <End Role="Makeups" EntitySet="Makeups" />
@@ -263,15 +254,14 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
         </EntityType>
         <EntityType Name="TransactionDetail">
           <Key>
-            <PropertyRef Name="TransactionID" />
-            <PropertyRef Name="MakeupID" />
-            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="TransactionID" Type="Int32" Nullable="false" />
           <Property Name="MakeupID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Makeup" Relationship="Self.FK_TransactionDetails_Makeups" FromRole="TransactionDetails" ToRole="Makeups" />
           <NavigationProperty Name="TransactionHeader" Relationship="Self.FK_TransactionDetails_TransactionHeaders" FromRole="TransactionDetails" ToRole="TransactionHeaders" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK_Makeups_MakeupBrands">
           <End Role="MakeupBrands" Type="Self.MakeupBrand" Multiplicity="1" />
@@ -466,6 +456,7 @@ warning 6002: The table/view 'C:\USERS\SEMSEM\DOCUMENTS\CODES\CPP\MAKEMEUPZZ\APP
           <EntitySetMapping Name="TransactionDetails">
             <EntityTypeMapping TypeName="MakeMeUpzzDatabaseModel.TransactionDetail">
               <MappingFragment StoreEntitySet="TransactionDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
                 <ScalarProperty Name="MakeupID" ColumnName="MakeupID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />

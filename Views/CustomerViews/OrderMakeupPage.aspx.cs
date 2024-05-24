@@ -1,6 +1,7 @@
 ﻿using MakeMeUpzz.Controllers;
 using MakeMeUpzz.Handlers;
 using MakeMeUpzz.Models;
+using MakeMeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,8 +79,11 @@ namespace MakeMeUpzz.Views.CustomerViews {
 
         protected void CheckoutButton_Click(object sender, EventArgs e) {
 
-            
+            int userID = user.UserID;
 
+            Handler.CreateTransaction(userID);
+
+            Response.Redirect("OrderMakeupPage.aspx");
         }
 
         protected void ClearCartButton_Click(object sender, EventArgs e) {

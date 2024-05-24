@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 namespace MakeMeUpzz.Views.AdminViews {
     public partial class InsertMakeup: System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
+
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
 
                 Response.Redirect("~/Views/LoginPage.aspx");

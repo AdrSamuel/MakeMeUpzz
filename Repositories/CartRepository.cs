@@ -34,9 +34,10 @@ namespace MakeMeUpzz.Repositories {
             return (from cart in _instance.Carts
                     join makeup in _instance.Makeups on cart.MakeupID equals makeup.MakeupID
                     where cart.UserID == userID
-                    group cart by makeup.MakeupName into g
+                    group cart by new { makeup.MakeupName, cart.MakeupID } into g
                     select new CartDTO {
-                        MakeupName = g.Key,
+                        MakeupID = g.Key.MakeupID,
+                        MakeupName = g.Key.MakeupName,
                         Quantity = g.Sum(x => x.Quantity)
                     }).ToList();
         }

@@ -23,7 +23,8 @@ namespace MakeMeUpzz.Repositories {
         }
 
         internal static List<MakeupBrand> GetAllMakeupBrand() {
-            return (from x in _instance.MakeupBrands select x).ToList();
+            return (from x in _instance.MakeupBrands orderby x.MakeupBrandRating descending
+                    select x).ToList();
         }
 
         public static MakeupBrand GetMakeupBrandByID(int id) {
