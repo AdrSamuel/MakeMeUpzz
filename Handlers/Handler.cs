@@ -100,5 +100,38 @@ namespace MakeMeUpzz.Handlers {
         public static void InsertMakeupType(string name) {
             MakeupTypeRepository.CreateMakeupType(name);
         }
+
+        public static Makeup GetMakeupByID(int id) {
+            return MakeupRepository.GetMakeupByID(id);
+        }
+        public static MakeupBrand GetMakeupBrandByID(int id) {
+            return MakeupBrandRepository.GetMakeupBrandByID(id);
+        }
+        public static MakeupType GetMakeupTypeByID(int id) {
+            return MakeupTypeRepository.GetMakeupTypeByID(id);
+        }
+
+        public static void UpdateMakeup(int id, string name, int price,
+            int weight, int typeID, int brandID) {
+            MakeupRepository.UpdateMakeup(id, name, price, weight, typeID, brandID);
+        }
+
+        public static void UpdateMakeupBrand(int id, string name, int rating) {
+            MakeupBrandRepository.UpdateMakeupBrand(id, name, rating);
+        }
+
+        public static void UpdateMakeupType(int id, string name) {
+            MakeupTypeRepository.UpdateMakeupType(id, name);
+        }
+
+        public static void DeleteMakeup(int id) {
+            MakeupRepository.DeleteMakeup(id);        
+        }
+        public static void DeleteMakeupType(int id) {
+            MakeupTypeRepository.DeleteMakeupType(id);
+        }
+        public static void DeleteMakeupBrand(int id) {
+            MakeupBrandRepository.DeleteMakeupBrand(id);
+        }
     }
 }

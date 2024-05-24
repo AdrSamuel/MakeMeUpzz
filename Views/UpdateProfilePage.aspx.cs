@@ -59,8 +59,6 @@ namespace MakeMeUpzz.Views {
             string gender = UserGenderDropDownList.Text;
             DateTime dob = Calendar.SelectedDate;
 
-
-
             if (oldUsername.Equals(username)) {
 
                 ErrorLabel.Text = ProfileController.UpdateProfile(email, gender, dob);

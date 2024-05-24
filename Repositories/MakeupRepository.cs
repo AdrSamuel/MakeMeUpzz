@@ -26,5 +26,31 @@ namespace MakeMeUpzz.Repositories {
         public static List<Makeup> GetAllMakeup() {
             return _instance.Makeups.Include("MakeupType").Include("MakeupBrand").ToList();
         }
+
+        public static Makeup GetMakeupByID(int id) {
+            return _instance.Makeups.Find(id);
+        }
+
+        public static void UpdateMakeup(int id, string name, int price,
+            int weight, int typeID, int brandID) {
+
+            Makeup makeup = GetMakeupByID(id);
+
+            makeup.MakeupName = name;
+            makeup.MakeupPrice = price;
+            makeup.MakeupWeight = weight;
+            makeup.MakeupTypeID = typeID;
+            makeup.MakeupBrandID = brandID;
+
+            _instance.SaveChanges();
+        }
+
+        public static void DeleteMakeup(int id) {
+
+            Makeup makeup = GetMakeupByID(id);
+            
+            _instance.Makeups.Remove(makeup);
+            _instance.SaveChanges();
+        }
     }
 }

@@ -12,7 +12,7 @@
                 <asp:Button ID="InsertMakeupButton" runat="server" Text="Insert" OnClick="InsertMakeupButton_Click" />
             </div>
             <br />
-            <asp:GridView ID="MakeupGV" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="MakeupGV" runat="server" AutoGenerateColumns="False" OnRowDeleting="MakeupGV_RowDeleting" OnRowEditing="MakeupGV_RowEditing">
                 <Columns>
                     <asp:BoundField DataField="MakeupID" HeaderText="Makeup ID" SortExpression="MakeupID" />
                     <asp:BoundField DataField="MakeupName" HeaderText="Makeup Name" SortExpression="MakeupName" />
@@ -33,7 +33,7 @@
                 <asp:Button ID="InsertMakeupTypeButton" runat="server" Text="Insert" OnClick="InsertMakeupTypeButton_Click" />
             </div>
             <br />
-            <asp:GridView ID="MakeupTypeGV" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="MakeupTypeGV" runat="server" AutoGenerateColumns="False" OnRowDeleting="MakeupTypeGV_RowDeleting" OnRowEditing="MakeupTypeGV_RowEditing">
                 <Columns>
                     <asp:BoundField DataField="MakeupTypeID" HeaderText="Makeup Type ID" SortExpression="MakeupTypeID" />
                     <asp:BoundField DataField="MakeupTypeName" HeaderText="Makeup Type Name" SortExpression="MakeupTypeName" />
@@ -50,7 +50,7 @@
                 <asp:Button ID="InsertMakeupBrandButton" runat="server" Text="Insert" OnClick="InsertMakeupBrandButton_Click" />
             </div>
             <br />
-            <asp:GridView ID="MakeupBrandGV" runat="server" AutoGenerateColumns="False" Style="margin-top: 0px">
+            <asp:GridView ID="MakeupBrandGV" runat="server" AutoGenerateColumns="False" Style="margin-top: 0px" OnRowDeleting="MakeupBrandGV_RowDeleting" OnRowEditing="MakeupBrandGV_RowEditing">
                 <Columns>
                     <asp:BoundField DataField="MakeupBrandID" HeaderText="Makeup Brand ID" SortExpression="MakeupBrandID" />
                     <asp:BoundField DataField="MakeupBrandName" HeaderText="Makeup Brand Name" SortExpression="MakeupBrandName" />

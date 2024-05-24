@@ -12,7 +12,7 @@ namespace MakeMeUpzz.Views.AdminViews {
         protected void Page_Load(object sender, EventArgs e) {
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
 
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("~/Views/LoginPage.aspx");
 
             } else {
 
@@ -59,6 +59,60 @@ namespace MakeMeUpzz.Views.AdminViews {
 
         protected void InsertMakeupBrandButton_Click(object sender, EventArgs e) {
             Response.Redirect("~/Views/AdminViews/InsertMakeupBrand.aspx");
+        }
+
+        protected void MakeupGV_RowEditing(object sender, GridViewEditEventArgs e) {
+
+            var row = MakeupGV.Rows[e.NewEditIndex];
+            var makeupID = row.Cells[0].Text;
+
+            Response.Redirect("~/Views/AdminViews/UpdateMakeupPage.aspx?id=" + makeupID);
+        }
+
+        protected void MakeupGV_RowDeleting(object sender, GridViewDeleteEventArgs e) {
+
+            var row = MakeupGV.Rows[e.RowIndex];
+            var makeupID = Convert.ToInt32(row.Cells[0].Text);
+
+            Handler.DeleteMakeup(makeupID);
+            Response.Redirect("~/Views/AdminViews/ManageMakeupPage.aspx");
+        }
+
+        protected void MakeupTypeGV_RowEditing(object sender, GridViewEditEventArgs e) {
+
+            var row = MakeupTypeGV.Rows[e.NewEditIndex];
+            var makeupTypeID = row.Cells[0].Text;
+
+            Response.Redirect("~/Views/AdminViews/UpdateMakeupTypePage.aspx?id=" + makeupTypeID);
+        }
+
+        protected void MakeupTypeGV_RowDeleting(object sender, GridViewDeleteEventArgs e) {
+
+            var row = MakeupTypeGV.Rows[e.RowIndex];
+            var makeupTypeID = Convert.ToInt32(row.Cells[0].Text);
+
+            Handler.DeleteMakeupType(makeupTypeID);
+            Response.Redirect("~/Views/AdminViews/ManageMakeupPage.aspx");
+
+        }
+
+        protected void MakeupBrandGV_RowEditing(object sender, GridViewEditEventArgs e) {
+
+            var row = MakeupBrandGV.Rows[e.NewEditIndex];
+            var makeupBrandID = row.Cells[0].Text;
+
+            Response.Redirect("~/Views/AdminViews/UpdateMakeupBrandPage.aspx?id=" + makeupBrandID);
+
+        }
+
+        protected void MakeupBrandGV_RowDeleting(object sender, GridViewDeleteEventArgs e) {
+
+            var row = MakeupBrandGV.Rows[e.RowIndex];
+            var makeupBrandID = Convert.ToInt32(row.Cells[0].Text);
+
+            Handler.DeleteMakeupBrand(makeupBrandID);
+            Response.Redirect("~/Views/AdminViews/ManageMakeupPage.aspx");
+
         }
     }
 }

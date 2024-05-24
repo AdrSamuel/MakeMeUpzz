@@ -20,7 +20,7 @@
         </div>
         <br />
         <div>
-            <asp:Button ID="BackButton" runat="server" Text="Back" OnClick="BackButton_Click" Style="height: 35px" />
+            <asp:Button ID="BackButton" runat="server" Text="Back" OnClick="BackButton_Click" />
             <asp:Button ID="InsertButton" runat="server" Text="Insert" OnClick="InsertButton_Click" />
         </div>
     
