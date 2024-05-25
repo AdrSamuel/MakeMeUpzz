@@ -18,6 +18,7 @@ namespace MakeMeUpzz.Repositories {
             User user = UserFactory.Create(id, username, email, gender, password, dob);
             _instance.Users.Add(user);
             _instance.SaveChanges();
+
         }
 
         public static void UpdateProfile(int id, string username, string email, string gender, DateTime DoB) {
@@ -40,6 +41,14 @@ namespace MakeMeUpzz.Repositories {
             user.UserGender = gender;
             user.UserDOB = DoB;
 
+            _instance.SaveChanges();
+        }
+
+        public static void DeleteUser(int userID) {
+
+            User user = GetUserByID(userID);
+
+            _instance.Users.Remove(user);
             _instance.SaveChanges();
         }
 

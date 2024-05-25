@@ -25,7 +25,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -42,7 +42,7 @@ namespace MakeMeUpzz.Views {
 
                     if (!IsPostBack) {
 
-                        List<User> userList = Handler.GetAllUser();
+                        List<User> userList = HandlerUser.GetAllUser();
 
                         if (user != null) {
 
@@ -53,6 +53,16 @@ namespace MakeMeUpzz.Views {
                     }
                 }
             }
+        }
+
+        protected void ListUserGV_RowDeleting(object sender, GridViewDeleteEventArgs e) {
+
+            var row = ListUserGV.Rows[e.RowIndex];
+            var userID = Convert.ToInt32(row.Cells[0].Text);
+
+            HandlerUser.DeleteUser(userID);
+            Response.Redirect("~/Views/HomePage.aspx");
+
         }
     }
 }

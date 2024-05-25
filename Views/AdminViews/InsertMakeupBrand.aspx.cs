@@ -22,7 +22,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -48,7 +48,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             ErrorLabel.Text = MakeupController.CheckMakeupBrand(name, rating);
 
             if (ErrorLabel.Text.Equals("")) {
-                Handler.InsertMakeupBrand(name, Convert.ToInt32(rating));
+                HandlerMakeupBrand.InsertMakeupBrand(name, Convert.ToInt32(rating));
                 ErrorLabel.Text = "Success";
             }
         }

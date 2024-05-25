@@ -23,7 +23,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -35,7 +35,7 @@ namespace MakeMeUpzz.Views {
                 if (!IsPostBack) {
 
                     var username = user.UserName;
-                    List<User> userList = Handler.GetUserTypeList(username);
+                    List<User> userList = HandlerUser.GetUserTypeList(username);
 
                     if (userList != null) {
 
@@ -50,19 +50,6 @@ namespace MakeMeUpzz.Views {
 
         protected void UpdatePasswordButton_Click(object sender, EventArgs e) {
 
-         /*   User user;
-            if (Session["user"] == null) {
-
-                var username = Request.Cookies["user_cookie"].Value;
-                user = Handler.GetUser(username);
-                Session["user"] = user;
-
-            } else {
-
-                user = (User) Session["user"];
-
-            }*/
-
             var oldPass = OldPasswordBox.Text;
             var newPass = NewPasswordBox.Text;
             var usernameParam = user.UserName;
@@ -70,11 +57,11 @@ namespace MakeMeUpzz.Views {
             ErrorLabel.Text = ProfileController.UpdatePass(oldPass, newPass);
 
             if (ErrorLabel.Text.Equals("")) {
-                ErrorLabel.Text = Handler.CheckPassword(oldPass);
+                ErrorLabel.Text = HandlerUser.CheckPassword(oldPass);
             }
 
             if (ErrorLabel.Text.Equals("")) {
-                Handler.UpdatePassword(newPass, usernameParam);
+                HandlerUser.UpdatePassword(newPass, usernameParam);
             }
         }
 
@@ -82,7 +69,7 @@ namespace MakeMeUpzz.Views {
 
             var row = ProfileGV.Rows[e.NewEditIndex];
             var username = row.Cells[0].Text;
-            var id = Handler.GetUserID(username).ToString();
+            var id = HandlerUser.GetUserID(username).ToString();
 
             Response.Redirect("~/Views/UpdateProfilePage.aspx?id="+id);
         }

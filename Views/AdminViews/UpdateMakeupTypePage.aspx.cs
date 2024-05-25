@@ -23,7 +23,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -32,10 +32,14 @@ namespace MakeMeUpzz.Views.AdminViews {
 
                 }
 
+                if (user.UserRole.Equals("Customer")) {
+                    Response.Redirect("~/Views/LoginPage.aspx");
+                }
+
                 if (!IsPostBack) {
 
                     int typeID = Convert.ToInt32(Request["id"]);
-                    MakeupType makeupType = Handler.GetMakeupTypeByID(typeID);
+                    MakeupType makeupType = HandlerMakeupType.GetMakeupTypeByID(typeID);
 
                     TypeNameBox.Text = makeupType.MakeupTypeName;
           
@@ -57,7 +61,7 @@ namespace MakeMeUpzz.Views.AdminViews {
 
             if (ErrorLabel.Text.Equals("")) {
 
-                Handler.UpdateMakeupType(id, name);
+                HandlerMakeupType.UpdateMakeupType(id, name);
 
                 ErrorLabel.Text = "Update Success";
 

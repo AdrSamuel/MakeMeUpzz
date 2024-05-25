@@ -9,7 +9,7 @@ namespace MakeMeUpzz.Controllers {
 
         public static string CheckUserName(string username) {
             string response = "";
-            bool nameExist = Handler.GetUser(username) != null ? true : false; 
+            bool nameExist = HandlerUser.GetUser(username) != null ? true : false; 
 
             if (username.Equals("")) {
                 response = "Username cannot be empty";

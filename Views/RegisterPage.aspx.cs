@@ -27,9 +27,9 @@ namespace MakeMeUpzz.Views {
 
             if (ErrorLabel.Text.Equals("")) {
 
-                Handler.Register(username, email, gender, password, dob);
+                HandlerUser.Register(username, email, gender, password, dob);
 
-                Session["user"] = Handler.GetUser(username);
+                Session["user"] = HandlerUser.GetUser(username);
 
                 Response.Redirect("HomePage.aspx");
             }

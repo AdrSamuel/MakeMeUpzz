@@ -24,7 +24,7 @@ namespace MakeMeUpzz.Views.CustomerViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -40,10 +40,10 @@ namespace MakeMeUpzz.Views.CustomerViews {
                 if (!IsPostBack) {
 
 
-                    MakeupGV.DataSource = Handler.GetAllMakeup();
+                    MakeupGV.DataSource = HandlerMakeup.GetAllMakeup();
                     MakeupGV.DataBind();
 
-                    CartGV.DataSource = Handler.GetCart(user.UserID);
+                    CartGV.DataSource = HandlerCart.GetCart(user.UserID);
                     CartGV.DataBind();
 
                     if (CartGV.Rows.Count == 0) {
@@ -70,7 +70,7 @@ namespace MakeMeUpzz.Views.CustomerViews {
                 int userID = user.UserID;
                 int makeupID = Convert.ToInt32(MakeupGV.DataKeys[row.RowIndex].Value);
 
-                Handler.AddToCart(userID, makeupID, quantity);
+                HandlerCart.AddToCart(userID, makeupID, quantity);
 
                 Response.Redirect("OrderMakeupPage.aspx");
             }
@@ -81,7 +81,7 @@ namespace MakeMeUpzz.Views.CustomerViews {
 
             int userID = user.UserID;
 
-            Handler.CreateTransaction(userID);
+            HandlerTransactions.CreateTransaction(userID);
 
             Response.Redirect("OrderMakeupPage.aspx");
         }
@@ -90,7 +90,7 @@ namespace MakeMeUpzz.Views.CustomerViews {
 
             int userID = user.UserID;
 
-            Handler.ClearCart(userID);
+            HandlerCart.ClearCart(userID);
 
             Response.Redirect("OrderMakeupPage.aspx");
         }

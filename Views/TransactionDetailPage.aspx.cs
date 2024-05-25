@@ -13,10 +13,33 @@ namespace MakeMeUpzz.Views {
         public TransactionHeader transaction;
         public List<TransactionDetail> transactionDetail;
         protected void Page_Load(object sender, EventArgs e) {
+
+
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
+
+                Response.Redirect("LoginPage.aspx");
+
+            } else {
+
+                User user;
+
+                if (Session["user"] == null) {
+
+                    var username = Request.Cookies["user_cookie"].Value;
+                    user = HandlerUser.GetUser(username);
+                    Session["user"] = user;
+
+                } else {
+
+                    user = (User) Session["user"];
+
+                }
+            }
+
             int tranID = Convert.ToInt32(Request.QueryString["id"]);
 
-            transaction = Handler.GetUserTransactionsByID(tranID);
-            transactionDetail = Handler.GetTransactionDetail(tranID);
+            transaction = HandlerTransactions.GetUserTransactionsByID(tranID);
+            transactionDetail = HandlerTransactions.GetTransactionDetail(tranID);
         }
     }
 }

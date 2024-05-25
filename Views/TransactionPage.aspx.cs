@@ -15,6 +15,28 @@ namespace MakeMeUpzz.Views {
         public List<TransactionHeader> userTransactions;
         protected void Page_Load(object sender, EventArgs e) {
 
+
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
+
+                Response.Redirect("LoginPage.aspx");
+
+            } else {
+
+                User user;
+
+                if (Session["user"] == null) {
+
+                    var username = Request.Cookies["user_cookie"].Value;
+                    user = HandlerUser.GetUser(username);
+                    Session["user"] = user;
+
+                } else {
+
+                    user = (User) Session["user"];
+
+                }
+            }
+
             AdminView.Visible = false;
             CustomerView.Visible = false;
 
@@ -29,7 +51,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -49,8 +71,8 @@ namespace MakeMeUpzz.Views {
 
                 }
 
-                allTransactions = Handler.GetAllTransaction();
-                userTransactions = Handler.GetUserTransactions(user.UserID);
+                allTransactions = HandlerTransactions.GetAllTransaction();
+                userTransactions = HandlerTransactions.GetUserTransactions(user.UserID);
 
 
             }

@@ -21,7 +21,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -36,13 +36,13 @@ namespace MakeMeUpzz.Views.AdminViews {
 
                 if (!IsPostBack) {
 
-                    MakeupGV.DataSource = Handler.GetAllMakeup();
+                    MakeupGV.DataSource = HandlerMakeup.GetAllMakeup();
                     MakeupGV.DataBind();
 
-                    MakeupTypeGV.DataSource = Handler.GetAllMakeupType();
+                    MakeupTypeGV.DataSource = HandlerMakeupType.GetAllMakeupType();
                     MakeupTypeGV.DataBind();
 
-                    MakeupBrandGV.DataSource = Handler.GetAllMakeupBrand();
+                    MakeupBrandGV.DataSource = HandlerMakeupBrand.GetAllMakeupBrand();
                     MakeupBrandGV.DataBind();
                 }
 
@@ -74,7 +74,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             var row = MakeupGV.Rows[e.RowIndex];
             var makeupID = Convert.ToInt32(row.Cells[0].Text);
 
-            Handler.DeleteMakeup(makeupID);
+            HandlerMakeup.DeleteMakeup(makeupID);
             Response.Redirect("~/Views/AdminViews/ManageMakeupPage.aspx");
         }
 
@@ -91,7 +91,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             var row = MakeupTypeGV.Rows[e.RowIndex];
             var makeupTypeID = Convert.ToInt32(row.Cells[0].Text);
 
-            Handler.DeleteMakeupType(makeupTypeID);
+            HandlerMakeupType.DeleteMakeupType(makeupTypeID);
             Response.Redirect("~/Views/AdminViews/ManageMakeupPage.aspx");
 
         }
@@ -110,7 +110,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             var row = MakeupBrandGV.Rows[e.RowIndex];
             var makeupBrandID = Convert.ToInt32(row.Cells[0].Text);
 
-            Handler.DeleteMakeupBrand(makeupBrandID);
+            HandlerMakeupBrand.DeleteMakeupBrand(makeupBrandID);
             Response.Redirect("~/Views/AdminViews/ManageMakeupPage.aspx");
 
         }

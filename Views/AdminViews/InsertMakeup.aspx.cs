@@ -10,6 +10,8 @@ using System.Web.UI.WebControls;
 
 namespace MakeMeUpzz.Views.AdminViews {
     public partial class InsertMakeup: System.Web.UI.Page {
+
+        User user;
         protected void Page_Load(object sender, EventArgs e) {
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
@@ -23,7 +25,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -52,7 +54,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             ErrorLabel.Text = MakeupController.CheckMakeup(name, price, weight, typeID, brandID);
 
             if (ErrorLabel.Text.Equals("")) {
-                Handler.InsertMakeup(name, Convert.ToInt32(price), Convert.ToInt32(weight),
+                HandlerMakeup.InsertMakeup(name, Convert.ToInt32(price), Convert.ToInt32(weight),
                     Convert.ToInt32(typeID), Convert.ToInt32(brandID));
                 ErrorLabel.Text = "Success";
             }

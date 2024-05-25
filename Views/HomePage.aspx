@@ -13,7 +13,7 @@
     </div>
     <div id="ListUserContainer" runat="server">
         <h1>List User</h1>
-        <asp:GridView ID="ListUserGV" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="ListUserGV" runat="server" AutoGenerateColumns="False" OnRowDeleting="ListUserGV_RowDeleting">
             <Columns>
                 <asp:BoundField DataField="UserID" HeaderText="ID" SortExpression="UserId" />
                 <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName" />
@@ -21,6 +21,7 @@
                 <asp:BoundField DataField="UserDOB" HeaderText="Date Of Birth" SortExpression="UserDOB" />
                 <asp:BoundField DataField="UserGender" HeaderText="Gender" SortExpression="UserGender" />
                 <asp:BoundField DataField="UserRole" HeaderText="Role" SortExpression="UserRole" />
+                <asp:CommandField ButtonType="Button" HeaderText="Commands" ShowDeleteButton="True" ShowHeader="True" />
             </Columns>
         </asp:GridView>
     </div>

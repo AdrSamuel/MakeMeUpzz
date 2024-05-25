@@ -23,7 +23,7 @@ namespace MakeMeUpzz.Master {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -69,7 +69,7 @@ namespace MakeMeUpzz.Master {
         }
 
         protected void TransactionReportLabel_Click(object sender, EventArgs e) {
-            Response.Redirect("~/Views/AdminViews/TranReportPage.aspx");
+            Response.Redirect("~/Views/AdminViews/ReportPage.aspx");
         }
 
         protected void ProfileLabel_Click(object sender, EventArgs e) {

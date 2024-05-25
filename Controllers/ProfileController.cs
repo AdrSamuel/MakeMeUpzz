@@ -23,7 +23,7 @@ namespace MakeMeUpzz.Controllers {
 
 
             if (response.Equals("")) {
-                response = RegisterController.CheckGender(email);
+                response = RegisterController.CheckGender(gender);
             }
 
             if (response.Equals("")) {

@@ -22,7 +22,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = Handler.GetUser(username);
+                    user = HandlerUser.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -31,12 +31,16 @@ namespace MakeMeUpzz.Views.AdminViews {
 
                 }
 
+                if (user.UserRole.Equals("Customer")) {
+                    Response.Redirect("~/Views/LoginPage.aspx");
+                }
+
                 if (!IsPostBack) {
 
-                    UnhandledGV.DataSource = Handler.GetUnhandledTransaction();
+                    UnhandledGV.DataSource = HandlerTransactions.GetUnhandledTransaction();
                     UnhandledGV.DataBind();
 
-                    HandledGV.DataSource = Handler.GetHandledTransaction();
+                    HandledGV.DataSource = HandlerTransactions.GetHandledTransaction();
                     HandledGV.DataBind();
                 }
 
@@ -49,7 +53,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             GridViewRow row = (GridViewRow) btn.NamingContainer;
             int transactionID = Convert.ToInt32(row.Cells[0].Text);
 
-            Handler.HandleTransaction(transactionID);
+            HandlerTransactions.HandleTransaction(transactionID);
 
             Response.Redirect("OrderQueuePage.aspx");
         }
