@@ -34,12 +34,19 @@ namespace MakeMeUpzz.Views {
                     user = (User) Session["user"];
 
                 }
+
+                int tranID = Convert.ToInt32(Request.QueryString["id"]);
+
+                transaction = HandlerTransactions.GetUserTransactionsByID(tranID);
+                transactionDetail = HandlerTransactions.GetTransactionDetail(tranID);
+
+                if (user.UserRole.Equals("Customer") && !(transaction.User.UserName.Equals(user.UserName))) {
+
+                    Response.Redirect("~/Views/LoginPage.aspx");
+
+                }
             }
 
-            int tranID = Convert.ToInt32(Request.QueryString["id"]);
-
-            transaction = HandlerTransactions.GetUserTransactionsByID(tranID);
-            transactionDetail = HandlerTransactions.GetTransactionDetail(tranID);
         }
     }
 }
