@@ -1,4 +1,5 @@
-﻿using MakeMeUpzz.Handlers;
+﻿using MakeMeUpzz.Controllers;
+using MakeMeUpzz.Handlers;
 using MakeMeUpzz.Models;
 using MakeMeUpzz.Repositories;
 using System;
@@ -25,7 +26,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -42,7 +43,7 @@ namespace MakeMeUpzz.Views {
 
                     if (!IsPostBack) {
 
-                        List<User> userList = HandlerUser.GetAllUser();
+                        List<User> userList = UserController.GetAllUser();
 
                         if (user != null) {
 
@@ -60,7 +61,7 @@ namespace MakeMeUpzz.Views {
             var row = ListUserGV.Rows[e.RowIndex];
             var userID = Convert.ToInt32(row.Cells[0].Text);
 
-            HandlerUser.DeleteUser(userID);
+            UserController.DeleteUser(userID);
             Response.Redirect("~/Views/HomePage.aspx");
 
         }

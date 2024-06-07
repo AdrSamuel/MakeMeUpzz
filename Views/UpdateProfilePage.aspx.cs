@@ -23,7 +23,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -35,11 +35,11 @@ namespace MakeMeUpzz.Views {
                 if (!IsPostBack) {
 
                     int ID = Convert.ToInt32(Request["id"]);
-                    User userDisplay = HandlerUser.GetUserByID(ID);
+                    User userDisplay = UserController.GetUserByID(ID);
 
                     UserNameBox.Text = userDisplay.UserName.ToString();
                     UserEmailBox.Text = userDisplay.UserEmail.ToString();
-                    UserGenderDropDownList.DataSource = HandlerUser.GetGenderList();
+                    UserGenderDropDownList.DataSource = UserController.GetGenderList();
                     UserGenderDropDownList.DataBind();
                     UserGenderDropDownList.DataSource = userDisplay.UserGender;
 
@@ -52,7 +52,7 @@ namespace MakeMeUpzz.Views {
         protected void UpdateButton_Click(object sender, EventArgs e) {
 
             int id = Convert.ToInt32(Request["id"]);
-            string oldUsername = HandlerUser.GetUserNameByID(id);
+            string oldUsername = UserController.GetUserNameByID(id);
 
             string username = UserNameBox.Text;
             string email = UserEmailBox.Text;
@@ -72,7 +72,7 @@ namespace MakeMeUpzz.Views {
 
             if (ErrorLabel.Text.Equals("")) {
 
-                HandlerUser.UpdateProfile(id, username, email, gender, dob);
+                UserController.UpdateProfile(id, username, email, gender, dob);
 
                 ErrorLabel.Text = "Update Success";
 

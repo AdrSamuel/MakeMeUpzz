@@ -1,4 +1,5 @@
-﻿using MakeMeUpzz.Handlers;
+﻿using MakeMeUpzz.Controllers;
+using MakeMeUpzz.Handlers;
 using MakeMeUpzz.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -37,10 +38,10 @@ namespace MakeMeUpzz.Views.AdminViews {
 
                 if (!IsPostBack) {
 
-                    UnhandledGV.DataSource = HandlerTransactions.GetUnhandledTransaction();
+                    UnhandledGV.DataSource = TransactionController.GetUnhandledTransaction();
                     UnhandledGV.DataBind();
 
-                    HandledGV.DataSource = HandlerTransactions.GetHandledTransaction();
+                    HandledGV.DataSource = TransactionController.GetHandledTransaction();
                     HandledGV.DataBind();
                 }
 
@@ -53,7 +54,7 @@ namespace MakeMeUpzz.Views.AdminViews {
             GridViewRow row = (GridViewRow) btn.NamingContainer;
             int transactionID = Convert.ToInt32(row.Cells[0].Text);
 
-            HandlerTransactions.HandleTransaction(transactionID);
+            TransactionController.HandleTransaction(transactionID);
 
             Response.Redirect("OrderQueuePage.aspx");
         }

@@ -1,4 +1,5 @@
-﻿using MakeMeUpzz.Handlers;
+﻿using MakeMeUpzz.Controllers;
+using MakeMeUpzz.Handlers;
 using MakeMeUpzz.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -37,8 +38,8 @@ namespace MakeMeUpzz.Views {
 
                 int tranID = Convert.ToInt32(Request.QueryString["id"]);
 
-                transaction = HandlerTransactions.GetUserTransactionsByID(tranID);
-                transactionDetail = HandlerTransactions.GetTransactionDetail(tranID);
+                transaction = TransactionController.GetUserTransactionsByID(tranID);
+                transactionDetail = TransactionController.GetTransactionDetail(tranID);
 
                 if (user.UserRole.Equals("Customer") && !(transaction.User.UserName.Equals(user.UserName))) {
 

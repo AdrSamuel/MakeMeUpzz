@@ -1,48 +1,44 @@
-﻿using MakeMeUpzz.Models;
+﻿using MakeMeUpzz.Handlers;
+using MakeMeUpzz.Models;
 using MakeMeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MakeMeUpzz.Handlers {
-    public class HandlerTransactions {
+namespace MakeMeUpzz.Controllers {
+    public class TransactionController {
 
         public static List<TransactionHeader> GetAllTransaction() {
-            return TranHeaderRepository.GetAllTransaction();
+            return HandlerTransactions.GetAllTransaction();
         }
 
         public static void CreateTransaction(int userID) {
-
-            int tranID = TranHeaderRepository.CreateTran(userID);
-
-            TranDetailRepository.CreateTranDetail(userID, tranID);
-
-            CartRepository.ClearCart(userID);
-
+            HandlerTransactions.CreateTransaction(userID);
         }
 
         public static void HandleTransaction(int transactionID) {
-            TranHeaderRepository.HandleTransaction(transactionID);
+            HandlerTransactions.HandleTransaction(transactionID);
         }
 
         public static List<TransactionHeader> GetUserTransactions(int userID) {
-            return TranHeaderRepository.GetUserTransactions(userID);
+            return HandlerTransactions.GetUserTransactions(userID);
         }
         public static TransactionHeader GetUserTransactionsByID(int tranID) {
-            return TranHeaderRepository.GetUserTransactionsByID(tranID);
+            return HandlerTransactions.GetUserTransactionsByID(tranID);
         }
 
         public static List<TransactionDetail> GetTransactionDetail(int id) {
-            return TranDetailRepository.GetTransactionDetail(id);
+            return HandlerTransactions.GetTransactionDetail(id);
         }
 
         public static List<TransactionHeader> GetUnhandledTransaction() {
-            return TranHeaderRepository.GetUnhandledTransaction();
+            return HandlerTransactions.GetUnhandledTransaction();
         }
 
         public static List<TransactionHeader> GetHandledTransaction() {
-            return TranHeaderRepository.GetHandledTransaction();
+            return HandlerTransactions.GetHandledTransaction();
         }
+
     }
 }

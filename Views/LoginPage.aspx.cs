@@ -24,11 +24,11 @@ namespace MakeMeUpzz.Views {
 
             if (ErrorLabel.Text.Equals("")) {
 
-                ErrorLabel.Text = HandlerUser.Login(username, password);
+                ErrorLabel.Text = UserController.Login(username, password);
 
                 if (ErrorLabel.Text.Equals("")) {
 
-                    Session["user"] = HandlerUser.GetUser(username);
+                    Session["user"] = UserController.GetUser(username);
 
                     if (remember) {
 

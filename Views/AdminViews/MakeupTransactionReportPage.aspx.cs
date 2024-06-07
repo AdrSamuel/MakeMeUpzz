@@ -1,4 +1,5 @@
-﻿using MakeMeUpzz.Dataset;
+﻿using MakeMeUpzz.Controllers;
+using MakeMeUpzz.Dataset;
 using MakeMeUpzz.Handlers;
 using MakeMeUpzz.Models;
 using MakeMeUpzz.Report;
@@ -24,7 +25,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -40,7 +41,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 TransactionReport report = new TransactionReport();
                 ReportViewer.ReportSource = report;
 
-                TransactionDataset data = GetData(HandlerTransactions.GetAllTransaction());
+                TransactionDataset data = GetData(TransactionController.GetAllTransaction());
                 report.SetDataSource(data);
 
             }

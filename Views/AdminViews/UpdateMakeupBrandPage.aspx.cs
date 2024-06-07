@@ -24,7 +24,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -40,7 +40,7 @@ namespace MakeMeUpzz.Views.AdminViews {
                 if (!IsPostBack) {
 
                     int makeupID = Convert.ToInt32(Request["id"]);
-                    MakeupBrand makeupBrand = HandlerMakeupBrand.GetMakeupBrandByID(makeupID);
+                    MakeupBrand makeupBrand = MakeupBrandController.GetMakeupBrandByID(makeupID);
 
                     BrandNameBox.Text = makeupBrand.MakeupBrandName;
                     BrandRatingBox.Text = Convert.ToString(makeupBrand.MakeupBrandRating);
@@ -63,7 +63,7 @@ namespace MakeMeUpzz.Views.AdminViews {
 
             if (ErrorLabel.Text.Equals("")) {
 
-                HandlerMakeupBrand.UpdateMakeupBrand(id, name, Convert.ToInt32(rating));
+                MakeupBrandController.UpdateMakeupBrand(id, name, Convert.ToInt32(rating));
 
                 ErrorLabel.Text = "Update Success";
 

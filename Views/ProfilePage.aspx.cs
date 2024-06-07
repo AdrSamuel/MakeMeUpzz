@@ -23,7 +23,7 @@ namespace MakeMeUpzz.Views {
                 if (Session["user"] == null) {
 
                     var username = Request.Cookies["user_cookie"].Value;
-                    user = HandlerUser.GetUser(username);
+                    user = UserController.GetUser(username);
                     Session["user"] = user;
 
                 } else {
@@ -35,7 +35,7 @@ namespace MakeMeUpzz.Views {
                 if (!IsPostBack) {
 
                     var username = user.UserName;
-                    List<User> userList = HandlerUser.GetUserTypeList(username);
+                    List<User> userList = UserController.GetUserTypeList(username);
 
                     if (userList != null) {
 
@@ -57,11 +57,11 @@ namespace MakeMeUpzz.Views {
             ErrorLabel.Text = ProfileController.UpdatePass(oldPass, newPass);
 
             if (ErrorLabel.Text.Equals("")) {
-                ErrorLabel.Text = HandlerUser.CheckPassword(oldPass);
+                ErrorLabel.Text = UserController.CheckPassword(oldPass);
             }
 
             if (ErrorLabel.Text.Equals("")) {
-                HandlerUser.UpdatePassword(newPass, usernameParam);
+                UserController.UpdatePassword(newPass, usernameParam);
             }
         }
 
@@ -69,7 +69,7 @@ namespace MakeMeUpzz.Views {
 
             var row = ProfileGV.Rows[e.NewEditIndex];
             var username = row.Cells[0].Text;
-            var id = HandlerUser.GetUserID(username).ToString();
+            var id = UserController.GetUserID(username).ToString();
 
             Response.Redirect("~/Views/UpdateProfilePage.aspx?id="+id);
         }
