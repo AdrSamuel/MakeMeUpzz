@@ -16,14 +16,14 @@ namespace MakeMeUpzz.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class TranCrystalReport : ReportClass {
+    public class TransactionReport : ReportClass {
         
-        public TranCrystalReport() {
+        public TransactionReport() {
         }
         
         public override string ResourceName {
             get {
-                return "TranCrystalReport.rpt";
+                return "TransactionReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace MakeMeUpzz.Report {
         
         public override string FullResourceName {
             get {
-                return "MakeMeUpzz.Report.TranCrystalReport.rpt";
+                return "MakeMeUpzz.Report.TransactionReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace MakeMeUpzz.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedTranCrystalReport : Component, ICachedReport {
+    public class CachedTransactionReport : Component, ICachedReport {
         
-        public CachedTranCrystalReport() {
+        public CachedTransactionReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace MakeMeUpzz.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            TranCrystalReport rpt = new TranCrystalReport();
+            TransactionReport rpt = new TransactionReport();
             rpt.Site = this.Site;
             return rpt;
         }

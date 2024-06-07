@@ -1,18 +1,16 @@
-﻿using System;
+﻿using MakeMeUpzz.Dataset;
+using MakeMeUpzz.Handlers;
+using MakeMeUpzz.Models;
+using MakeMeUpzz.Report;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MakeMeUpzz.Dataset;
-using MakeMeUpzz.Models;
-using MakeMeUpzz.Report;
-using MakeMeUpzz.Handlers;
 
 namespace MakeMeUpzz.Views.AdminViews {
-    public partial class ReportPage: System.Web.UI.Page {
+    public partial class MakeupTransactionReportPage: System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null) {
@@ -39,40 +37,44 @@ namespace MakeMeUpzz.Views.AdminViews {
                     Response.Redirect("~/Views/LoginPage.aspx");
                 }
 
-                TranCrystalReport report = new TranCrystalReport();
-                CrystalReportViewer.ReportSource = report;
+                TransactionReport report = new TransactionReport();
+                ReportViewer.ReportSource = report;
 
-                TranDataSet data = GetData(HandlerTransactions.GetAllTransaction());
+                TransactionDataset data = GetData(HandlerTransactions.GetAllTransaction());
                 report.SetDataSource(data);
 
             }
-
         }
 
-        private TranDataSet GetData(List<TransactionHeader> transactions) {
+        private TransactionDataset GetData(List<TransactionHeader> transactions) {
 
-            TranDataSet data = new TranDataSet();
+            TransactionDataset data = new TransactionDataset();
 
             var headerTable = data.TransactionHeaders;
             var detailTable = data.TransactionDetails;
 
             foreach (TransactionHeader t in transactions) {
 
+                var grandTotal = t.TransactionDetails.Sum(td => td.Quantity * td.Makeup.MakeupPrice);
                 var headerRow = headerTable.NewRow();
                 headerRow["TransactionID"] = t.TransactionID;
                 headerRow["UserID"] = t.UserID;
                 headerRow["TransactionDate"] = t.TransactionDate;
                 headerRow["Status"] = t.Status;
+                headerRow["GrandTotal"] = grandTotal;
 
                 headerTable.Rows.Add(headerRow);
 
                 foreach (TransactionDetail d in t.TransactionDetails) {
 
+                    var subTotal = d.Quantity * d.Makeup.MakeupPrice;
                     var dRow = detailTable.NewRow();
 
                     dRow["TransactionID"] = d.TransactionID;
                     dRow["MakeupID"] = d.MakeupID;
                     dRow["Quantity"] = d.Quantity;
+                    dRow["MakeupPrice"] = d.Makeup.MakeupPrice;
+                    dRow["SubTotal"] = subTotal;
 
                     detailTable.Rows.Add(dRow);
 
@@ -84,7 +86,9 @@ namespace MakeMeUpzz.Views.AdminViews {
         }
 
         protected void HomeButton_Click(object sender, EventArgs e) {
+
             Response.Redirect("~/Views/HomePage.aspx");
+
         }
     }
 }

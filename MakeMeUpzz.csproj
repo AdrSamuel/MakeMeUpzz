@@ -1227,9 +1227,9 @@
     <Content Include="Views\AdminViews\InsertMakeup.aspx" />
     <Content Include="Views\AdminViews\InsertMakeupBrand.aspx" />
     <Content Include="Views\AdminViews\InsertMakeupType.aspx" />
+    <Content Include="Views\AdminViews\MakeupTransactionReportPage.aspx" />
     <Content Include="Views\AdminViews\ManageMakeupPage.aspx" />
     <Content Include="Views\AdminViews\OrderQueuePage.aspx" />
-    <Content Include="Views\AdminViews\ReportPage.aspx" />
     <Content Include="Views\AdminViews\UpdateMakeupBrandPage.aspx" />
     <Content Include="Views\AdminViews\UpdateMakeupPage.aspx" />
     <Content Include="Views\AdminViews\UpdateMakeupTypePage.aspx" />
@@ -1250,10 +1250,10 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
-    <Compile Include="Dataset\TranDataSet.Designer.cs">
+    <Compile Include="Dataset\TransactionDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TranDataSet.xsd</DependentUpon>
+      <DependentUpon>TransactionDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\MakeupBrandFactory.cs" />
@@ -1312,10 +1312,10 @@
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\TranCrystalReport.cs">
+    <Compile Include="Report\TransactionReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TranCrystalReport.rpt</DependentUpon>
+      <DependentUpon>TransactionReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Repositories\CartDTO.cs" />
@@ -1348,6 +1348,13 @@
     <Compile Include="Views\AdminViews\InsertMakeupType.aspx.designer.cs">
       <DependentUpon>InsertMakeupType.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\AdminViews\MakeupTransactionReportPage.aspx.cs">
+      <DependentUpon>MakeupTransactionReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdminViews\MakeupTransactionReportPage.aspx.designer.cs">
+      <DependentUpon>MakeupTransactionReportPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminViews\ManageMakeupPage.aspx.cs">
       <DependentUpon>ManageMakeupPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1361,13 +1368,6 @@
     </Compile>
     <Compile Include="Views\AdminViews\OrderQueuePage.aspx.designer.cs">
       <DependentUpon>OrderQueuePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AdminViews\ReportPage.aspx.cs">
-      <DependentUpon>ReportPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\AdminViews\ReportPage.aspx.designer.cs">
-      <DependentUpon>ReportPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminViews\UpdateMakeupBrandPage.aspx.cs">
       <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
@@ -1463,16 +1463,16 @@
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
     </Content>
     <Content Include="Master\Header.Master" />
-    <Content Include="Dataset\TranDataSet.xsc">
-      <DependentUpon>TranDataSet.xsd</DependentUpon>
+    <Content Include="Dataset\TransactionDataset.xsc">
+      <DependentUpon>TransactionDataset.xsd</DependentUpon>
     </Content>
-    <None Include="Dataset\TranDataSet.xsd">
+    <None Include="Dataset\TransactionDataset.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TranDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>TransactionDataset.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Dataset\TranDataSet.xss">
-      <DependentUpon>TranDataSet.xsd</DependentUpon>
+    <Content Include="Dataset\TransactionDataset.xss">
+      <DependentUpon>TransactionDataset.xsd</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -1487,9 +1487,9 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Report\TranCrystalReport.rpt">
+    <EmbeddedResource Include="Report\TransactionReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>TranCrystalReport.cs</LastGenOutput>
+      <LastGenOutput>TransactionReport.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

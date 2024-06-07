@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MakeMeUpzz.Handlers;
+using MakeMeUpzz.Models;
+using MakeMeUpzz.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -144,6 +147,27 @@ namespace MakeMeUpzz.Controllers {
                 return -1;
             }
 
+        }
+
+        public static List<Makeup> GetAllMakeup() {
+            return HandlerMakeup.GetAllMakeup();
+        }
+
+        public static void InsertMakeup(string name, int price, int weight, int typeID, int brandID) {
+            HandlerMakeup.InsertMakeup(name, price, weight, typeID, brandID);
+        }
+
+        public static Makeup GetMakeupByID(int id) {
+            return HandlerMakeup.GetMakeupByID(id);
+        }
+
+        public static void UpdateMakeup(int id, string name, int price,
+            int weight, int typeID, int brandID) {
+            HandlerMakeup.UpdateMakeup(id, name, price, weight, typeID, brandID);
+        }
+
+        public static void DeleteMakeup(int id) {
+            HandlerMakeup.DeleteMakeup(id);
         }
     }
 }

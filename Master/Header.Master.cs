@@ -69,7 +69,7 @@ namespace MakeMeUpzz.Master {
         }
 
         protected void TransactionReportLabel_Click(object sender, EventArgs e) {
-            Response.Redirect("~/Views/AdminViews/ReportPage.aspx");
+            Response.Redirect("~/Views/AdminViews/MakeupTransactionReportPage.aspx");
         }
 
         protected void ProfileLabel_Click(object sender, EventArgs e) {

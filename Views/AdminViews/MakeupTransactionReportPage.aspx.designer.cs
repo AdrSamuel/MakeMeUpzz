@@ -10,7 +10,7 @@
 namespace MakeMeUpzz.Views.AdminViews {
 
 
-    public partial class ReportPage {
+    public partial class MakeupTransactionReportPage {
 
         /// <summary>
         /// form1 control.
@@ -31,12 +31,12 @@ namespace MakeMeUpzz.Views.AdminViews {
         protected global::System.Web.UI.WebControls.Button HomeButton;
 
         /// <summary>
-        /// CrystalReportViewer control.
+        /// ReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer;
+        protected global::CrystalDecisions.Web.CrystalReportViewer ReportViewer;
     }
 }
